@@ -1,7 +1,7 @@
 import java.lang.reflect.InvocationTargetException;
 
-//        for testing pathClassLoader compile program and
-//        remove LoadingClass.class from target folder to temp directory
+//        for testing pathClassLoader before running, compile the program and
+//        delete LoadingClass.class from target folder
 
 public class PathMain {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {

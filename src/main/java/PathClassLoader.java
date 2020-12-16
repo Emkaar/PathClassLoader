@@ -45,9 +45,7 @@ public class PathClassLoader extends ClassLoader{
         try {
             f.read(result,0,result.length);
         } finally {
-            try {
-                f.close();
-            } catch (Exception e) {}
+            f.close();
         }
         return result;
     }
