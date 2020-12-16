@@ -1,3 +1,5 @@
+import loadedClasses.LoadingClass;
+
 import java.lang.reflect.InvocationTargetException;
 
 //        for testing pathClassLoader before running, compile the program and
@@ -14,5 +16,7 @@ public class PathMain {
         System.out.println(customLoadedClass.getClassLoader());
         System.out.println(usuallyObject);
         System.out.println(usuallyLoadedClass.getClassLoader());
+//        LoadingClass loadingClass = (LoadingClass)customObject;
+//        System.out.println(loadingClass);
     }
 }

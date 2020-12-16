@@ -10,19 +10,38 @@ public class PathClassLoader extends ClassLoader{
         this.loadingPaths = loadingPaths;
     }
 
+
+//    if we need first try to load class from our loading paths uncomment next rows
+
+//    @Override
+//    protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
+//        Class result= findClass(name);
+//
+//        if (resolve) {
+//            resolveClass(result);
+//        }
+//        return result;
+//    }
+
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
-        Class result;
+        Class result = null;
         File classFile = findFile(name.replace('.' ,File.separatorChar));
+        //    if we need first try to load class from our loading paths comment next three rows
         if(classFile == null){
             throw new ClassNotFoundException("Class in path not found.");
         }
+        //    if we need first try to load class from our loading paths uncomment next three rows
+//        if(classFile == null){
+//            return findSystemClass(name);
+//        }
         byte[] classBytes = new byte[0];
         try {
             classBytes = loadFileAsBytes(classFile);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
+
         result = defineClass(name, classBytes, 0, classBytes.length);
         return result;
     }
